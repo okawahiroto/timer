@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Timer</title>
+</head>
+<body>
+  <div align="center">
+    <header>
+      <h1>Timer</h1>
+    </header>
+
+    <main id="main">
+      <div class="canvas-wrapper">
+        <canvas id="canvas" width="400" height="400" style="position: static; left: 0; top: 0; z-index: 1;"></canvas>
+      </div>
+    </main>
+
+    <footer>
+      <div class="form-wrapper">
+        <form id="form01">
+          <input type="number" id="countDownSeconds">
+          <input type="button" id="btnStart" value="スタート">
+          <input type="button" id="btnStop" value="ストップ">
+          <input type="button" id="btnReset" value="リセット">
+        </form>
+      </div>
+    </footer>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
