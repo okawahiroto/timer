@@ -20,6 +20,15 @@ btnStart.addEventListener("click", countDown);
 let btnStop = document.getElementById('btnStop');
 btnStop.addEventListener("click", countStop);
 
+let btnReset = document.getElementById('btnReset');
+btnReset.addEventListener("click", countReset);
+
+// タイマー初期表示
+context.beginPath();
+context.arc(200, 200, 100, 0 * Math.PI / 180, 360 * Math.PI /180, false);
+context.strokeStyle = 'grey';
+context.lineWidth = 40;
+context.stroke();
 
 function countDown() {
   context.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
@@ -55,9 +64,17 @@ function countDownSeconds() {
   context.strokeStyle = 'deepskyblue';
   context.lineWidth = 40;
   context.stroke();
+
+  context.beginPath();
+  context.arc(200, 200, 100, 0 * Math.PI / 180, (360 * nowKakudo) * Math.PI /180, true);
+  context.strokeStyle = 'lightgrey';
+  context.lineWidth = 40;
+  context.stroke();
+
+
   console.log('---');
 
-  if (count < 0) {
+  if (count <= 0) {
     console.log('カウント' + count);
     console.log('角度' + nowKakudo);
     console.log('END!');
@@ -65,12 +82,22 @@ function countDownSeconds() {
     let now02 = new Date();
     console.log(now02);
 
+        // タイマー初期表示
+    context.beginPath();
+    context.arc(200, 200, 100, 0 * Math.PI / 180, 360 * Math.PI /180, false);
+    context.strokeStyle = 'red';
+    context.lineWidth = 40;
+    context.stroke();
     clearInterval(countDownTimer);
-    context.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
   }
 }
 
 
 function countStop() {
   clearInterval(countDownTimer);
+}
+
+
+function countReset() {
+  location.reload();
 }

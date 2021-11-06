@@ -1,3 +1,8 @@
+body {
+  font-family: 'Yu Gothic','Yu Gothic Medium','メイリオ','MS ゴシック','游ゴシック Medium',sans-serif;
+}
+
+
 .canvas-wrapper {
   transform:rotate(-90deg);
   width: 400px;
@@ -5,9 +10,7 @@
   /* margin: 0 auto; */
 }
 
-/*
+
 .form-wrapper {
-  width: 800px;
-  border: yellowgreen;
-  margin: 0 auto;
-} */
+  font-family: 'Yu Gothic','Yu Gothic Medium','メイリオ','MS ゴシック','游ゴシック Medium',sans-serif;
+}
