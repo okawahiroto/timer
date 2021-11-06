@@ -6,8 +6,7 @@ body {
 .canvas-wrapper {
   transform:rotate(-90deg);
   width: 400px;
-  border: solid;
-  /* margin: 0 auto; */
+  /* border: solid; */
 }
 
 
