@@ -11,14 +11,28 @@ body {
   font-family: 'Yu Gothic','Yu Gothic Medium','メイリオ','MS ゴシック','游ゴシック Medium',sans-serif;
 }
 
-
 .canvas-wrapper {
   transform:rotate(-90deg);
   width: 300px;
   /* border: solid; */
 }
 
-
 .form-wrapper {
   font-family: 'Yu Gothic','Yu Gothic Medium','メイリオ','MS ゴシック','游ゴシック Medium',sans-serif;
+}
+
+#flexbox01 {
+  width: 300px;
+  display: flex;
+  justify-content: space-around;
+}
+
+#btnset {
+  width: 40px;
+}
+
+#flexbox02 {
+  width: 300px;
+  display: flex;
+  justify-content: space-around;
 }
