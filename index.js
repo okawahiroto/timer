@@ -2,6 +2,9 @@
 let canvas = document.querySelector('#canvas');
 let context = canvas.getContext('2d');
 
+let canvasText = document.getElementById('canvas-text');
+let contextText = canvasText.getContext('2d');
+
 // 時間
 let endMinute = 0;
 let nowSecond = 0;
@@ -29,9 +32,19 @@ let item01Time = 0;
 let item02Time = 0;
 let item03Time = 0;
 
+// 項目名
+let item01Text = formElements[0].value;
+let item02Text = formElements[3].value;
+let item03Text = formElements[6].value;
+
+// 現在の項目名
+let itemNowText = '';
+
 let buttonClick = 0;
 
 let timerDisplay = document.getElementById('timerDisplay').innerText;
+
+
 console.log(document.forms);
 
 
@@ -58,6 +71,7 @@ context.arc(150, 150, 100, 0 * Math.PI / 180, 360 * Math.PI /180, false);
 context.strokeStyle = 'gray';
 context.lineWidth = 40;
 context.stroke();
+
 
 
 // タイマー設定
@@ -111,6 +125,12 @@ function timerSetting() {
   context.strokeStyle = 'lightgreen';
   context.lineWidth = 40;
   context.stroke();
+
+  contextText.font = "2em YuGothic";
+  contextText.clearRect(0, 0, 300, 300);
+  contextText.fillText(timeConvert(totalTimeSeconds), 110, 150);
+  contextText.fillText(item01Text, 110, 200);
+  // contextText.textAlign = "center";
 };
 
 function countDown() {;
@@ -137,8 +157,26 @@ function timerDrawing() {
   console.log('カウントダウン' + remainTime);
   nowKakudo = countDownSeconds / totalTimeSeconds;
 
+  console.log(item01Time);
+
   // 残り時間を表示
-  document.getElementById('timerDisplay').innerText = timeConvert(remainTime) + ' / ' + timeConvert(totalTimeSeconds)
+  document.getElementById('timerDisplay').innerText = timeConvert(remainTime) + ' / ' + timeConvert(totalTimeSeconds);
+
+  // 現在の項目名を取得
+  if (totalTimeSeconds - remainTime <= item01Time) {
+    itemNowText = item01Text;
+  } else if (totalTimeSeconds - remainTime  <= item01Time + item02Time) {
+    itemNowText = item02Text;
+  }  else {
+    itemNowText = item03Text;
+  };
+
+  // 円グラフ内部に残り時間と項目名を表示
+  contextText.font = "2em YuGothic";
+  contextText.clearRect(0, 0, 300, 300);
+  contextText.fillText(timeConvert(remainTime), 110, 150);
+  contextText.fillText(itemNowText, 110, 200);
+  // contextText.textAlign = "center";
 
   // 円グラフの経過時間をグレーで表示
   context.beginPath();
@@ -194,8 +232,10 @@ function timeConvert(time) {
 }
 
 // ToDoList
-// 現在の項目の表示
 // 項目の追加・削除
+// 円グラフの表示位置(センタリング、そのほかの要素の回り込み)
+// 円グラフ内のテキスト表示位置(センタリング)
+
 
 // SETを押していない時の処理→STARTに入れ込む
 // 20211121実装
@@ -204,3 +244,5 @@ function timeConvert(time) {
 // タイマーを止めた時の処理→RESTARTボタンの追加
 // 20211121実装
 
+// 現在の項目の表示
+// 20211204実装
