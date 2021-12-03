@@ -16,8 +16,11 @@
     <main id="main">
       <h1>Timer</h1>
       <div class="canvas-wrapper">
-        <canvas id="canvas" width="300" height="300" style="position: static; left: 100px; top: 400px; z-index: 0;"></canvas>
+        <!-- <canvas id="canvas" width="300" height="300" style="position: static; left: 100px; top: 400px; z-index: 0;"></canvas> -->
+        <canvas id="canvas" width="300" height="300"></canvas>
+        <canvas id="canvas-text" width="300" height="300"></canvas>
       </div>
+      <br>
       <div class="timerDisplay" id="timerDisplay">
         <h1>Remaining / TOTAL</h1>
       </div>
@@ -672,17 +675,17 @@
         </div> -->
         <p class="mb1"></p>
         <div id="flexbox01" width="200px">
-          <input type="button" class="btn btn-secondary" id="btnSet" value="SET">
-          <input type="button" class="btn btn-primary" id="btnStart" value="START">
+          <input type="button" class="btn btn-secondary shadow" class="" id="btnSet" value="SET">
+          <input type="button" class="btn btn-primary shadow" id="btnStart" value="START">
         </div>
         <p class="mb1"></p>
         <div id="flexbox02">
-          <input type="button" class="btn btn-warning" id="btnStop" value="PAUSE">
-          <input type="button" class="btn btn-info" id="btnRestart" value="RESTART">
+          <input type="button" class="btn btn-warning shadow" id="btnStop" value="PAUSE">
+          <input type="button" class="btn btn-info shadow" id="btnRestart" value="RESTART">
         </div>
         <p class="mb1"></p>
         <div>
-          <input type="button" class="btn btn-danger" id="btnReset" value="CLEAR">
+          <input type="button" class="btn btn-danger shadow" id="btnReset" value="CLEAR">
         </div>
       </form>
     </footer>

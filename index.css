@@ -12,9 +12,17 @@ body {
 }
 
 .canvas-wrapper {
+  position: relative;
+}
+
+.canvas-wrapper canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#canvas {
   transform:rotate(-90deg);
-  width: 300px;
-  /* border: solid; */
 }
 
 .form-wrapper {
