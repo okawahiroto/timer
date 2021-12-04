@@ -11,19 +11,30 @@ body {
   font-family: 'Yu Gothic','Yu Gothic Medium','メイリオ','MS ゴシック','游ゴシック Medium',sans-serif;
 }
 
-.canvas-wrapper {
+#canvas-wrapper {
+  width: 300px;
+  height: 300px;
   position: relative;
-}
-
-.canvas-wrapper canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
+  border: solid 1px;
 }
 
 #canvas {
-  transform:rotate(-90deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  rotate: -90deg;
+  /* border: solid 3px black; */
 }
+
+#canvas-text {
+  top: 0;
+  left: 0;
+
+  position: absolute;
+  /* border: dotted 3px red; */
+}
+
+
 
 .form-wrapper {
   font-family: 'Yu Gothic','Yu Gothic Medium','メイリオ','MS ゴシック','游ゴシック Medium',sans-serif;
