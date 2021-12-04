@@ -1,7 +1,8 @@
-// canvas
+// canvas表示用(円グラフ)
 let canvas = document.querySelector('#canvas');
 let context = canvas.getContext('2d');
 
+// canvas表示用(テキスト)
 let canvasText = document.getElementById('canvas-text');
 let contextText = canvasText.getContext('2d');
 
@@ -40,7 +41,7 @@ let item03Text = formElements[6].value;
 // 現在の項目名
 let itemNowText = '';
 
-let buttonClick = 0;
+// let buttonClick = 0;
 
 let timerDisplay = document.getElementById('timerDisplay').innerText;
 
@@ -72,7 +73,11 @@ context.strokeStyle = 'gray';
 context.lineWidth = 40;
 context.stroke();
 
-
+// テキスト初期表示
+contextText.font = "2em YuGothic";
+contextText.textAlign = 'center';
+contextText.fillText('00:00', 150, 140);
+contextText.fillText('項目名',150,180);
 
 // タイマー設定
 function timerSetting() {
@@ -126,11 +131,12 @@ function timerSetting() {
   context.lineWidth = 40;
   context.stroke();
 
-  contextText.font = "2em YuGothic";
+  // テキスト初期表示
   contextText.clearRect(0, 0, 300, 300);
-  contextText.fillText(timeConvert(totalTimeSeconds), 110, 150);
-  contextText.fillText(item01Text, 110, 200);
-  // contextText.textAlign = "center";
+  contextText.font = "2em YuGothic";
+  contextText.textAlign = 'center';
+  contextText.fillText(timeConvert(totalTimeSeconds), 150, 140);
+  contextText.fillText(item01Text,150,180);
 };
 
 function countDown() {;
@@ -143,7 +149,7 @@ function countDown() {;
   //   window.alert('1以上の秒数を入力してください')
   // } else {
   let nowStart = new Date();
-  buttonClick = nowStart;
+  // buttonClick = nowStart;
   console.log('開始時刻:' + nowStart);
   countDownSeconds = 0;
   console.log('カウントダウン' + totalTimeSeconds);
@@ -171,12 +177,13 @@ function timerDrawing() {
     itemNowText = item03Text;
   };
 
-  // 円グラフ内部に残り時間と項目名を表示
-  contextText.font = "2em YuGothic";
+  // 円グラフ内に残り時間と項目名表示
   contextText.clearRect(0, 0, 300, 300);
-  contextText.fillText(timeConvert(remainTime), 110, 150);
-  contextText.fillText(itemNowText, 110, 200);
-  // contextText.textAlign = "center";
+  contextText.font = "2em YuGothic";
+  contextText.textAlign = 'center';
+  contextText.fillText(timeConvert(remainTime), 150, 140);
+  contextText.font = "2em YuGothic";
+  contextText.fillText(itemNowText,150,180);
 
   // 円グラフの経過時間をグレーで表示
   context.beginPath();
@@ -196,6 +203,14 @@ function timerDrawing() {
     context.strokeStyle = 'red';
     context.lineWidth = 40;
     context.stroke();
+
+    // テキスト初期表示
+    contextText.clearRect(0, 0, 300, 300);
+    contextText.font = "2em YuGothic";
+    contextText.textAlign = 'center';
+    contextText.fillText(timeConvert(totalTimeSeconds), 150, 140);
+    contextText.font = "2em YuGothic";
+    contextText.fillText('終了',150,180);
 
     // タイマー終了
     clearInterval(countDownTimer);
