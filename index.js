@@ -208,7 +208,7 @@ function timerDrawing() {
     contextText.clearRect(0, 0, 300, 300);
     contextText.font = "2em YuGothic";
     contextText.textAlign = 'center';
-    contextText.fillText(timeConvert(totalTimeSeconds), 150, 140);
+    contextText.fillText(timeConvert(remainTime), 150, 140);
     contextText.font = "2em YuGothic";
     contextText.fillText('終了',150,180);
 
