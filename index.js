@@ -112,6 +112,8 @@ function timerSetting() {
   let wariai03 = 0;
   wariai03 = item03Time / totalTimeSeconds;
 
+  context.clearRect(0, 0, 300, 300);
+
   // 割合に応じて、円グラフを描画
   context.beginPath();
   context.arc(150, 150, 100, 0 * Math.PI / 180, (360 * wariai01) * Math.PI /180, false);
