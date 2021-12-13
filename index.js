@@ -34,9 +34,9 @@ let item02Time = 0;
 let item03Time = 0;
 
 // 項目名
-let item01Text = formElements[0].value;
-let item02Text = formElements[3].value;
-let item03Text = formElements[6].value;
+let item01Text = '';
+let item02Text = '';
+let item03Text = '';
 
 // 現在の項目名
 let itemNowText = '';
@@ -102,6 +102,9 @@ function timerSetting() {
   document.getElementById('timerDisplay').innerText = timeConvert(totalTimeSeconds) + ' / ' + timeConvert(totalTimeSeconds);
   console.log(timeConvert(totalTimeSeconds));
 
+  // item01Text = formElements[0].value;
+  console.log(item01Text);
+
   // 項目ごとの割合を計算
   let wariai01 = 0;
   wariai01 = item01Time / totalTimeSeconds;
@@ -132,6 +135,8 @@ function timerSetting() {
   context.stroke();
 
   // テキスト初期表示
+
+  item01Text = formElements[0].value;
   contextText.clearRect(0, 0, 300, 300);
   contextText.font = "2em YuGothic";
   contextText.textAlign = 'center';
@@ -163,8 +168,6 @@ function timerDrawing() {
   console.log('カウントダウン' + remainTime);
   nowKakudo = countDownSeconds / totalTimeSeconds;
 
-  console.log(item01Time);
-
   // 残り時間を表示
   document.getElementById('timerDisplay').innerText = timeConvert(remainTime) + ' / ' + timeConvert(totalTimeSeconds);
 
@@ -184,6 +187,10 @@ function timerDrawing() {
   contextText.fillText(timeConvert(remainTime), 150, 140);
   contextText.font = "2em YuGothic";
   contextText.fillText(itemNowText,150,180);
+  console.log('---');
+  console.log(item01Text);
+  console.log(item02Text);
+  console.log(item03Text);
 
   // 円グラフの経過時間をグレーで表示
   context.beginPath();
