@@ -41,8 +41,7 @@ let item03Text = '';
 // 現在の項目名
 let itemNowText = '';
 
-// let buttonClick = 0;
-
+// 時刻表示用の要素取得
 let timerDisplay = document.getElementById('timerDisplay').innerText;
 
 
@@ -79,7 +78,7 @@ contextText.textAlign = 'center';
 contextText.fillText('00:00', 150, 140);
 contextText.fillText('項目名',150,180);
 
-// タイマー設定
+// SETボタン、タイマー設定
 function timerSetting() {
 
   // 項目ごとの時間を計算
@@ -92,6 +91,7 @@ function timerSetting() {
   // 全ての秒数を計算
   totalTimeSeconds = item01Time + item02Time + item03Time;
 
+  // 時間の入力がない場合のアラート
   if (totalTimeSeconds == 0) {
     window.alert('時間を入力してください')
   }
@@ -100,10 +100,6 @@ function timerSetting() {
   // let min = Math.floor(totalTimeSeconds / 60);
   // let sec = totalTimeSeconds % 60;
   document.getElementById('timerDisplay').innerText = timeConvert(totalTimeSeconds) + ' / ' + timeConvert(totalTimeSeconds);
-  console.log(timeConvert(totalTimeSeconds));
-
-  // item01Text = formElements[0].value;
-  console.log(item01Text);
 
   // 項目ごとの割合を計算
   let wariai01 = 0;
@@ -135,8 +131,8 @@ function timerSetting() {
   context.stroke();
 
   // テキスト初期表示
-
   item01Text = formElements[0].value;
+
   contextText.clearRect(0, 0, 300, 300);
   contextText.font = "2em YuGothic";
   contextText.textAlign = 'center';
@@ -144,24 +140,22 @@ function timerSetting() {
   contextText.fillText(item01Text,150,180);
 };
 
+// STARTボタン、カウントダウン開始
 function countDown() {;
   timerSetting();
   console.log('スタート');
-  // count = totalTimeSeconds;
-  // if (count == '') {　
-  //   window.alert('秒数を入力してください')
-  // } else if (count <= 0) {
-  //   window.alert('1以上の秒数を入力してください')
-  // } else {
+
   let nowStart = new Date();
-  // buttonClick = nowStart;
   console.log('開始時刻:' + nowStart);
+
   countDownSeconds = 0;
   console.log('カウントダウン' + totalTimeSeconds);
+
   countDownTimer = setInterval(timerDrawing, 1000);
   }
 
 
+// カウントダウン中のタイマー描画
 function timerDrawing() {
   countDownSeconds = countDownSeconds + 1;
   remainTime = totalTimeSeconds - countDownSeconds;
@@ -171,7 +165,12 @@ function timerDrawing() {
   // 残り時間を表示
   document.getElementById('timerDisplay').innerText = timeConvert(remainTime) + ' / ' + timeConvert(totalTimeSeconds);
 
-  // 現在の項目名を取得
+  // 項目名を取得
+  item01Text = formElements[0].value;
+  item02Text = formElements[3].value;
+  item03Text = formElements[6].value;
+
+  // 時間ごとの項目名を取得
   if (totalTimeSeconds - remainTime <= item01Time) {
     itemNowText = item01Text;
   } else if (totalTimeSeconds - remainTime  <= item01Time + item02Time) {
@@ -187,10 +186,6 @@ function timerDrawing() {
   contextText.fillText(timeConvert(remainTime), 150, 140);
   contextText.font = "2em YuGothic";
   contextText.fillText(itemNowText,150,180);
-  console.log('---');
-  console.log(item01Text);
-  console.log(item02Text);
-  console.log(item03Text);
 
   // 円グラフの経過時間をグレーで表示
   context.beginPath();
@@ -199,7 +194,7 @@ function timerDrawing() {
   context.lineWidth = 40;
   context.stroke();
 
-
+  // タイマー終了判定、終了時刻確認
   if (remainTime <= 0) {
     let nowEnd = new Date();
     console.log('終了時刻:' + nowEnd);
@@ -224,8 +219,7 @@ function timerDrawing() {
   }
 }
 
-
-// ストップ
+// PAUSEボタン
 function countStop() {
   clearInterval(countDownTimer);
   console.log('ストップボタン');
@@ -233,13 +227,13 @@ function countStop() {
   console.log(remainTime);
 }
 
-// 再開
+// RESTARTボタン
 function countRestart() {
   countDownTimer = setInterval(timerDrawing, 1000);
 }
 
 
-// リセット
+// CLEARボタン(再読み込み)
 function countReset() {
   location.reload();
 }
