@@ -64,6 +64,11 @@ btnRestart.addEventListener("click", countRestart);
 let btnReset = document.getElementById('btnReset');
 btnReset.addEventListener("click", countReset);
 
+// ボタン初期表示
+btnStart.disabled = true;
+btnStop.disabled = true;
+btnRestart.disabled = true;
+
 
 // タイマー初期表示
 context.beginPath();
@@ -143,10 +148,13 @@ function timerSetting() {
 
   // 項目名を初期表示
   console.log(item01Text);
+
+  btnStart.disabled = false;
 };
 
 // STARTボタン、カウントダウン開始
 function countDown() {;
+
   timerSetting();
   console.log('スタート');
 
@@ -157,7 +165,9 @@ function countDown() {;
   console.log('カウントダウン' + totalTimeSeconds);
 
   countDownTimer = setInterval(timerDrawing, 1000);
-  }
+  btnStart.disabled = true;
+  btnStop.disabled = false;
+}
 
 
 // カウントダウン中のタイマー描画
@@ -230,11 +240,15 @@ function countStop() {
   console.log('ストップボタン');
   console.log(countDownSeconds);
   console.log(remainTime);
+  btnStop.disabled = true;
+  btnRestart.disabled = false;
 }
 
 // RESTARTボタン
 function countRestart() {
   countDownTimer = setInterval(timerDrawing, 1000);
+  btnRestart.disabled = true;
+  btnStop.disabled = false;
 }
 
 
