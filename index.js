@@ -139,6 +139,9 @@ function timerSetting() {
   contextText.textAlign = 'center';
   contextText.fillText(timeConvert(totalTimeSeconds), 150, 140);
   contextText.fillText(item01Text,150,180);
+
+  // 項目名を初期表示
+  console.log(item01Text);
 };
 
 function countDown() {;
