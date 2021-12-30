@@ -55,18 +55,18 @@ btnSet.addEventListener("click", timerSetting);
 let btnStart = document.getElementById('btnStart');
 btnStart.addEventListener("click", countDown);
 
-let btnStop = document.getElementById('btnStop');
-btnStop.addEventListener("click", countStop);
+let btnPause = document.getElementById('btnPause');
+btnPause.addEventListener("click", countStop);
 
 let btnRestart = document.getElementById('btnRestart');
 btnRestart.addEventListener("click", countRestart);
 
-let btnReset = document.getElementById('btnReset');
-btnReset.addEventListener("click", countReset);
+let btnReload = document.getElementById('btnReload');
+btnReload.addEventListener("click", countReset);
 
 // ボタン初期表示
 btnStart.disabled = true;
-btnStop.disabled = true;
+btnPause.disabled = true;
 btnRestart.disabled = true;
 
 
@@ -165,8 +165,10 @@ function countDown() {;
   console.log('カウントダウン' + totalTimeSeconds);
 
   countDownTimer = setInterval(timerDrawing, 1000);
+
+  btnSet.disabled = true;
   btnStart.disabled = true;
-  btnStop.disabled = false;
+  btnPause.disabled = false;
 }
 
 
@@ -231,6 +233,9 @@ function timerDrawing() {
 
     // タイマー終了
     clearInterval(countDownTimer);
+
+    btnSet.disabled = false;
+    btnPause.disabled = true;
   }
 }
 
@@ -240,7 +245,7 @@ function countStop() {
   console.log('ストップボタン');
   console.log(countDownSeconds);
   console.log(remainTime);
-  btnStop.disabled = true;
+  btnPause.disabled = true;
   btnRestart.disabled = false;
 }
 
@@ -248,7 +253,7 @@ function countStop() {
 function countRestart() {
   countDownTimer = setInterval(timerDrawing, 1000);
   btnRestart.disabled = true;
-  btnStop.disabled = false;
+  btnPause.disabled = false;
 }
 
 
