@@ -81,7 +81,7 @@ context.stroke();
 contextText.font = "2em YuGothic";
 contextText.textAlign = 'center';
 contextText.fillText('00:00', 150, 140);
-contextText.fillText('項目名',150,180);
+contextText.fillText('ITEM',150,180);
 
 // SETボタン、タイマー設定
 function timerSetting() {
@@ -229,7 +229,7 @@ function timerDrawing() {
     contextText.textAlign = 'center';
     contextText.fillText(timeConvert(remainTime), 150, 140);
     contextText.font = "2em YuGothic";
-    contextText.fillText('終了',150,180);
+    contextText.fillText('END',150,180);
 
     // タイマー終了
     clearInterval(countDownTimer);
