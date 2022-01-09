@@ -78,7 +78,7 @@ context.lineWidth = 40;
 context.stroke();
 
 // テキスト初期表示
-contextText.font = "2em YuGothic";
+contextText.font = "2em sans-serif";
 contextText.textAlign = 'center';
 contextText.fillText('00:00', 150, 140);
 contextText.fillText('ITEM',150,180);
@@ -98,7 +98,8 @@ function timerSetting() {
 
   // 時間の入力がない場合のアラート
   if (totalTimeSeconds == 0) {
-    window.alert('時間を入力してください')
+    window.alert('時間を入力してください');
+    return;
   }
 
   // 分秒を計算
@@ -141,7 +142,7 @@ function timerSetting() {
   item01Text = formElements[0].value;
 
   contextText.clearRect(0, 0, 300, 300);
-  contextText.font = "2em YuGothic";
+  contextText.font = "2em sans-serif";
   contextText.textAlign = 'center';
   contextText.fillText(timeConvert(totalTimeSeconds), 150, 140);
   contextText.fillText(item01Text,150,180);
@@ -198,10 +199,10 @@ function timerDrawing() {
 
   // 円グラフ内に残り時間と項目名表示
   contextText.clearRect(0, 0, 300, 300);
-  contextText.font = "2em YuGothic";
+  contextText.font = "2em sans-serif";
   contextText.textAlign = 'center';
   contextText.fillText(timeConvert(remainTime), 150, 140);
-  contextText.font = "2em YuGothic";
+  contextText.font = "2em sans-serif";
   contextText.fillText(itemNowText,150,180);
 
   // 円グラフの経過時間をグレーで表示
@@ -225,10 +226,10 @@ function timerDrawing() {
 
     // テキスト初期表示
     contextText.clearRect(0, 0, 300, 300);
-    contextText.font = "2em YuGothic";
+    contextText.font = "2em sans-serif";
     contextText.textAlign = 'center';
     contextText.fillText(timeConvert(remainTime), 150, 140);
-    contextText.font = "2em YuGothic";
+    contextText.font = "2em sans-serif";
     contextText.fillText('END',150,180);
 
     // タイマー終了
